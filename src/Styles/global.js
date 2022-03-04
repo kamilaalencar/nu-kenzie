@@ -8,25 +8,26 @@ export default createGlobalStyle`
     outline:0;
 }
 :root{
-    /* Cores Primarias */
-    --ColorPrimary: #ff577f;
-    --ColorPrimaryFocus: #ff427f;
-    --ColorPrimaryNegative: #59323f
-    /* Escala Grey  */
-    --Grey4:#121214;
-    --Grey3:#212529;
-    --Grey2:#343b41;
-    --Grey1:#868e96;
-    --Grey0:#f8f9fa;
+    --colorPrimary: #ff577f;
+    --colorPrimaryFocus: #ff427f;
+    --colorPrimaryNegative: #59323f;
+    --grey4: #121214;
+    --grey3:#212529;
+    --grey2:#343b41;
+    --grey1:#868e96;
+    --grey0:#f8f9fa;
     --black: #000000
+
+
+    --red: #c53030
 }
 
 body{
-    background-color: var(--Grey4)
+    font-family:'Inter', sans-serif;
+    background-color: var(--grey4)
 
 }
 h1, h2 , h3, h4, h5, h6{
-    font-family:'Inter', sans-serif;
     font-weight: 700;
 }
 button{
