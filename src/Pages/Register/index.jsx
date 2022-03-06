@@ -46,10 +46,6 @@ const Register = ({ authenticated }) => {
       });
   };
 
-  // if (authenticated) {
-  //   return <Redirect to="/dashboard" />;
-  // }
-
   return (
     <Container>
       <Header>
@@ -69,22 +65,22 @@ const Register = ({ authenticated }) => {
             type="text"
             placeholder="Digite aqui seu nome"
           />
-          {/* <Input
-              register={register}
-              name="bio"
-              error={errors.bio?.message}
-              label="Uma frase que te define"
-              type="text"
-              placeholder="Uma frase"
-            />
-            <Input
-              register={register}
-              name="contact"
-              error={errors.contact?.message}
-              label="Contato"
-              type="text"
-              placeholder="Seu contato principal"
-            /> */}
+          <Input
+            register={register}
+            name="bio"
+            error={errors.bio?.message}
+            label="Uma frase que te define"
+            type="text"
+            placeholder="Uma frase"
+          />
+          <Input
+            register={register}
+            name="contact"
+            error={errors.contact?.message}
+            label="Contato"
+            type="text"
+            placeholder="Seu contato principal"
+          />
 
           <Input
             register={register}
@@ -126,7 +122,6 @@ const Register = ({ authenticated }) => {
               </option>
             </select>
           </div>
-
           <Button type="submit">Cadastrar</Button>
         </form>
       </AnimationContainer>

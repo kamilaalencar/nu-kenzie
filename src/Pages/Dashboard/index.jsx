@@ -13,9 +13,11 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
 
   const [modalPut, setModalPut] = useState(false);
 
-  const [itemTochange, setItemToChange] = useState("");
+  const [itemTochange, setItemToChange] = useState([]);
 
-  const [user] = useState(JSON.parse(localStorage.getItem("@kenzieHub:user")));
+  const [user] = useState(
+    JSON.parse(localStorage.getItem("@kenzieHub:user")) || ""
+  );
 
   const [techList, setTechList] = useState([]);
 
@@ -34,9 +36,9 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
     setModalPost(true);
   };
 
-  // if (!authenticated) {
-  //   return <Redirect to="/" />;
-  // }
+  if (!authenticated) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <>
@@ -55,23 +57,28 @@ const Dashboard = ({ authenticated, setAuthenticated }) => {
         </div>
         <nav>
           {modalPost && <ModalPost user={user} setModalPost={setModalPost} />}
-          {modalPut && (
-            <ModalPut
-              use={user}
-              setModalPut={setModalPut}
-              itemToChange={itemTochange}
-            />
-          )}
         </nav>
         <DivTecnologies>
           {techList.map(({ title, status, id }) => (
-            <Card
-              setModalPut={setModalPut}
-              setItemToChange={setItemToChange}
-              title={title}
-              status={status}
-              id={id}
-            />
+            <>
+              <Card
+                setModalPut={setModalPut}
+                setItemToChange={setItemToChange}
+                title={title}
+                status={status}
+                id={id}
+              />
+              {modalPut && (
+                <ModalPut
+                  title={title}
+                  status={status}
+                  id={id}
+                  user={user}
+                  setModalPut={setModalPut}
+                  itemToChange={itemTochange}
+                />
+              )}
+            </>
           ))}
         </DivTecnologies>
       </Container>

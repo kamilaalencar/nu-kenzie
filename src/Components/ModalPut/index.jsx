@@ -4,9 +4,9 @@ import { toast } from "react-toastify";
 import api from "../../Services/api";
 import Button from "../Button";
 import Input from "../Input";
-import { Container, ContainerChangeTech, StyleButton } from "./styles";
+import { ContainerChangeTech } from "./styles";
 
-const ModalPut = ({ setModalPut, itemToChange }) => {
+const ModalPut = ({ setModalPut, itemToChange, title, status, id }) => {
   const close = () => {
     return setModalPut(false);
   };
@@ -17,18 +17,25 @@ const ModalPut = ({ setModalPut, itemToChange }) => {
 
   const { register, handleSubmit } = useForm();
 
-  const onSubmitFunction = (data) => {
+  const changeTech = ({ status }) => {
     api
-      .put(`/users/techs/${itemToChange}`, data, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((_) => {
-        toast.success("Tecnologia atualizada");
+      .put(
+        `/users/techs/${itemToChange.id}`,
+        {
+          status: status,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((response) => {
+        toast.info("Tecnologia atualizada");
       })
       .catch((err) => {
-        toast.error("Ops!! Algo deu errado");
+        toast.error("Infelizmente essa função ainda esta indisponível");
       });
   };
+
   return (
     <>
       <ContainerChangeTech>
@@ -36,7 +43,15 @@ const ModalPut = ({ setModalPut, itemToChange }) => {
           <h4>Tecnologia Detalhes</h4>
           <Button onClick={close}>x</Button>
         </div>
-        <form onSubmit={handleSubmit(onSubmitFunction)}>
+        <form onSubmit={handleSubmit(changeTech)}>
+          <Input
+            register={register}
+            name="title"
+            value={itemToChange.title}
+            placeholder={title}
+            label="Nome do Projeto"
+            disabled
+          />
           <div className="Container-select">
             <label>Status</label>
             <select type="text" {...register("status")}>
@@ -45,8 +60,9 @@ const ModalPut = ({ setModalPut, itemToChange }) => {
               <option value="Avançado">Avançado</option>
             </select>
           </div>
-          <Button>Salvar Alterações</Button>
-          <Button>Excluir</Button>
+          <div className="butons">
+            <Button type="submit">Salvar alterações</Button>
+          </div>
         </form>
       </ContainerChangeTech>
     </>

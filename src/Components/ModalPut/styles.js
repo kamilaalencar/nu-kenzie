@@ -48,6 +48,7 @@ export const ContainerChangeTech = styled.div`
       width: 11px;
       border-color: var(--grey2);
       color: var(--grey1);
+      background-color: var(--grey2);
     }
   }
   @media (min-width: 400px) {

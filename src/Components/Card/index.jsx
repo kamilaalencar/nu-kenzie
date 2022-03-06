@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import api from "../../Services/api";
-import { Container, StyeleButton } from "./styles";
+import Button from "../Button";
+import { Container } from "./styles";
 
 const Card = ({ status, title, id, setItemToChange, setModalPut }) => {
   const token = JSON.parse(localStorage.getItem("@kenzieHub:token"));
@@ -15,21 +16,17 @@ const Card = ({ status, title, id, setItemToChange, setModalPut }) => {
       });
   };
 
-  const showMOdal = (event) => {
-    setItemToChange(event.target.id);
+  const ChangeTech = () => {
     setModalPut(true);
   };
 
   return (
     <Container>
-      <h3>{title}</h3>
-      <p id={id} onClick={showMOdal}>
-        {status}
-      </p>
-      <StyeleButton onClick={(event) => deleteItem(event.target.id)} id={id}>
-        {" "}
-        X{" "}
-      </StyeleButton>
+      <h3 onClick={ChangeTech}>{title}</h3>
+      <p id={id}>{status}</p>
+      <Button onClick={(event) => deleteItem(event.target.id)} id={id}>
+        Excluir
+      </Button>
     </Container>
   );
 };

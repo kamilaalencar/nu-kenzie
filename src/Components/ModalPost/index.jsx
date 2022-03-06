@@ -26,7 +26,7 @@ const ModalPost = ({ setModalPost }) => {
         toast.success("Tecnologia cadastrada");
       })
       .catch((err) => {
-        toast.error("Ops!! Algo deu errado");
+        toast.error("Ops!! Tecnologia já cadastrada");
       });
   };
 
@@ -44,6 +44,12 @@ const ModalPost = ({ setModalPost }) => {
             placeholder="Digite aqui sua tecnologia"
             label="Nome"
           />
+          {/* <Input
+            register={register}
+            name="status"
+            placeholder="Iniciante, intermediário ou avançado"
+            label="Status"
+          /> */}
           <div className="Container-select">
             <label>Status</label>
             <select type="text" {...register("status")}>

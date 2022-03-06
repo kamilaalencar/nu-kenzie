@@ -38,10 +38,6 @@ const Login = ({ authenticated, setAuthenticated }) => {
       });
   };
 
-  // if (authenticated) {
-  //   return <Redirect to="/dashboard" />;
-  // }
-
   return (
     <Container>
       <img src={logo} alt="Kenzie Hub" />

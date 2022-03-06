@@ -11,18 +11,30 @@ export const Container = styled.div`
   border-radius: 5px;
   background-color: var(--grey4);
 
-  :hover {
-    background-color: var(--grey2);
+  h3 {
+    color: var(--grey0);
+    :hover {
+      cursor: pointer;
+    }
   }
-
   p {
     font-size: 12px;
     color: var(--grey1);
     font-weight: 400;
-
+  }
+  button {
+    width: 60px;
+    height: 28px;
+    border-color: transparent;
+    color: var(--grey1);
+    background-color: transparent;
     :hover {
-      cursor: pointer;
+      background-color: var(--grey3);
+      border-color: var(--grey3);
     }
+  }
+  @media (min-width: 600px) {
+    width: 440px;
   }
   @media (min-width: 1010px) {
     width: 850px;
@@ -31,13 +43,4 @@ export const Container = styled.div`
   @media (min-width: 1100px) {
     width: 950px;
   }
-`;
-
-export const StyeleButton = styled.button`
-  background-color: rgba(0, 0, 0, 0);
-  color: var(--grey0);
-  border: 0;
-  width: 20px;
-  height: 20px;
-  font-size: 10px;
 `;

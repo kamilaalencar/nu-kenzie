@@ -62,7 +62,7 @@ export const Header = styled.header`
   }
 `;
 export const Container = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -70,12 +70,13 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 29px;
 
   .header-tecnologias {
     display: flex;
     align-items: center;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     h3 {
       font-size: 16px;
       color: var(--grey0);
@@ -85,33 +86,19 @@ export const Container = styled.div`
       width: 32.49px;
       height: 32px;
       background-color: var(--grey3);
+      border-color: var(--grey3);
     }
-  }
-
-  section {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 
   nav {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
 
   hr {
     border: 1px solid var(--grey3);
-  }
-
-  @media (min-width: 1010px) {
-    width: 900px;
-  }
-
-  @media (min-width: 1100px) {
-    width: 980px;
   }
 `;
 
@@ -119,6 +106,7 @@ export const DivTecnologies = styled.div`
   width: 285px;
   min-height: 400px;
   max-height: 700px;
+  margin-top: 28px;
   padding: 10px;
   background-color: var(--grey3);
   display: flex;
@@ -126,25 +114,15 @@ export const DivTecnologies = styled.div`
   justify-content: flex-start;
   align-items: center;
 
+  @media (min-width: 600px) {
+    width: 490px;
+  }
+
   @media (min-width: 1010px) {
     width: 900px;
   }
 
   @media (min-width: 1100px) {
     width: 980px;
-  }
-`;
-
-export const StyledButton = styled.button`
-  width: 32px;
-  height: 32px;
-  background-color: var(--grey3);
-  color: var(--grey0);
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-
-  :hover {
-    background-color: var(--grey2);
   }
 `;
