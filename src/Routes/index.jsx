@@ -27,7 +27,10 @@ const Routes = () => {
         <Register authenticated={authenticated} />
       </Route>
       <Route path="/dashboard">
-        <Dashboard />
+        <Dashboard
+          authenticated={authenticated}
+          setAuthenticated={setAuthenticated}
+        />
       </Route>
     </Switch>
   );

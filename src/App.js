@@ -6,6 +6,7 @@ import GlobalStyle from "./Styles/global";
 function App() {
   return (
     <div>
+      <GlobalStyle />
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -17,8 +18,6 @@ function App() {
         draggable
         pauseOnHover
       />
-      <ToastContainer />
-      <GlobalStyle />
       <Routes />
     </div>
   );

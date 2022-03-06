@@ -7,6 +7,7 @@ export default createGlobalStyle`
     box-sizing:border-box;
     outline:0;
 }
+
 :root{
     --colorPrimary: #ff577f;
     --colorPrimaryFocus: #ff427f;
@@ -16,10 +17,8 @@ export default createGlobalStyle`
     --grey2:#343b41;
     --grey1:#868e96;
     --grey0:#f8f9fa;
-    --black: #000000
-
-
-    --red: #c53030
+    --negative:#E83F5B;
+    --sucess:#3fe864;
 }
 
 body{
